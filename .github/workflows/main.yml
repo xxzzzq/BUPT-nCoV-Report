@@ -11,10 +11,19 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Run script
+      - name: Daily report.
+        if: github.event.schedule == '5 16 * * *'
+        continue-on-error: true
+        env:
+          BUPT_USERNAME: ${{ secrets.BUPT_USERNAME }}
+          BUPT_PASSWORD: ${{ secrets.BUPT_PASSWORD }}
+          DAILY_REPORT_FORM: ${{ secrets.DAILY_REPORT_FORM }}
+        run: |
+          ./daily_report.ps1
+      - name: Regular check report.
         env:
           IS_AT_SCHOOL: ${{ secrets.IS_AT_SCHOOL }}
           BUPT_USERNAME: ${{ secrets.BUPT_USERNAME }}
           BUPT_PASSWORD: ${{ secrets.BUPT_PASSWORD }}
         run: |
-          ./main.ps1
+          ./regular_check.ps1
