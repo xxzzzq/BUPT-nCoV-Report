@@ -26,7 +26,7 @@ $res = Invoke-WebRequest -UseBasicParsing -Uri "https://app.bupt.edu.cn/uc/wap/l
     "password" = $env:BUPT_PASSWORD
 };
 
-if ($res.StatusCode -ne 200) {
+if ($res.StatusCode -ne 200 -or (ConvertFrom-Json $res.Content).e -ne 0) {
     throw "登录失败";
 }
 
@@ -64,7 +64,7 @@ $res = Invoke-WebRequest -UseBasicParsing -Uri "https://app.bupt.edu.cn/xisuncov
     "askforleave"  = 0
 };
 
-if ($res.StatusCode -ne 200) {
+if ($res.StatusCode -ne 200 -or (ConvertFrom-Json $res.Content).e -ne 0) {
     throw "打卡失败";
 }
 
