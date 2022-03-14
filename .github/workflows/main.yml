@@ -3,7 +3,7 @@ name: pwsh-script
 on:
   push:
   schedule:
-    - cron: "0 4 * * *"
+    - cron: "30 4 * * *"
 
 jobs:
   run:
