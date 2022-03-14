@@ -1,5 +1,5 @@
 if ($null -eq $env:IS_AT_SCHOOL -or $null -eq $env:BUPT_USERNAME -or $null -eq $env:BUPT_PASSWORD) {
-    throw "Secrtes参数未设置，请参考README."
+    throw "Secrets参数未设置，请参考README."
 }
 
 $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession;
