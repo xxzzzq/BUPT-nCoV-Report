@@ -1,7 +1,6 @@
 name: pwsh-script
 
 on:
-  push:
   schedule:
     - cron: "5 16 * * *"
     - cron: "5 4 * * *"

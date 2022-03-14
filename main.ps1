@@ -1,4 +1,4 @@
-if (!$env:IS_AT_SCHOOL -or !$env:BUPT_USERNAME -or $env:BUPT_PASSWORD) {
+if ($null -eq $env:IS_AT_SCHOOL -or $null -eq $env:BUPT_USERNAME -or $null -eq $env:BUPT_PASSWORD) {
     throw "Secrtes参数未设置，请参考README."
 }
 
